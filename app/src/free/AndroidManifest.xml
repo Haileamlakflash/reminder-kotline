@@ -1,0 +1,49 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <permission
+        android:name="com.cray.software.justreminder.maps.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.cray.software.justreminder.maps.permission.MAPS_RECEIVE" />
+
+    <application tools:ignore="GoogleAppIndexingWarning">
+        <receiver
+            android:name="com.elementary.tasks.core.services.PermanentReminderReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.elementary.tasks.SHOW" />
+                <action android:name="com.elementary.tasks.HIDE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.elementary.tasks.core.services.PermanentBirthdayReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.elementary.tasks.birthday.SHOW" />
+                <action android:name="com.elementary.tasks.birthday.HIDE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.elementary.tasks.core.services.ReminderActionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.elementary.tasks.reminder.SNOOZE" />
+                <action android:name="com.elementary.tasks.reminder.SIMPLE_HIDE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.elementary.tasks.core.services.BirthdayActionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.elementary.tasks.birthday.SIMPLE_HIDE" />
+                <action android:name="com.elementary.tasks.birthday.CALL" />
+                <action android:name="com.elementary.tasks.birthday.SMS" />
+            </intent-filter>
+        </receiver>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5133908997831400~9675541050"/>
+    </application>
+</manifest>
